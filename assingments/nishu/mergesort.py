@@ -1,7 +1,5 @@
-numberOfInputs = int(input("Enter number of inputs "))
-values = []
 def mergeSort(array):
-    print("Splitting ",array)
+    # print("Splitting ",array)
     if len(array)>1:
         mid = len(array)//2
         lefthalf = array[:mid] 
@@ -28,4 +26,4 @@ def mergeSort(array):
             array[k]=righthalf[j]
             j=j+1
             k=k+1
-    print("Merging ",array)
+    return array

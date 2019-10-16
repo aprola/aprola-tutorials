@@ -1,15 +1,12 @@
 import random
 
-def randomArrayGenerator(nos):
+def randomArrayGeneratorWithDuplicates(nos, min=0, max=1000):
     values = []
     x = nos
     while(x > 0):
-        y = random.randint(0, 1000)
-        try:
-            values.index(y)
-        except:
-            values.append(y)
-            x -= 1
+        y = random.randint(min, max)
+        values.append(y)
+        x -= 1
     return values
 
 
