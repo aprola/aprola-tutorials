@@ -24,6 +24,3 @@ sample = [9, 7, 6, 2, 1, 3, 8]
 3.2 if a item is inserted make sure its less than parent or swap with parents till root
 
 ### 4. after the hax heap is constructed. we need to swap root with the last item. and repeat
-
-
-        

@@ -1,14 +1,26 @@
 import random
 import time
 
-# last_print_at = time.time()
-# interval = 4
+from datetime import datetime, timedelta
+from functools import wraps
 
-# def print_at_interval(*val):
-#     if int((last_print_at%3600)/interval) != int((time.time() % 3600)/interval):
-#         now = time.time()
-#         print(*val)
-#         last_print_at = now
+def throttle(seconds=0, minutes=0, hours=0):
+    throttle_period = timedelta(seconds=seconds, minutes=minutes, hours=hours)
+    def throttle_decorator(fn):
+        time_of_last_call = datetime.min
+        @wraps(fn)
+        def wrapper(*args, **kwargs):
+            now = datetime.now()
+            if now - time_of_last_call > throttle_period:
+                nonlocal time_of_last_call
+                time_of_last_call = now
+                return fn(*args, **kwargs)
+        return wrapper
+    return throttle_decorator
+
+@throttle(4)
+def print_at_interval(*val):
+    print(*val)
     
 
 def randomArrayGeneratorWithDuplicates(nos, min=0, max=1000):
@@ -27,6 +39,6 @@ def randomArrayGeneratorWithoutDuplicates(nos):
     for x in range(nos):
         y = len(values)
         pos = random.randint(0, y)
-        # print_at_interval("percent: ", 100*x/nos)
+        print_at_interval("percent: ", 100*x/nos)
         values.insert(pos, x)
     return values

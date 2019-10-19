@@ -10,11 +10,11 @@ from assingments.ballu.countingsort import counting_sort
 
 
 
-# nos = int(input("enter sample size: "))
+nos = int(input("enter sample size: "))
 # max = int(input("enter max value: "))
 # sample = randomArrayGeneratorWithDuplicates(nos, 0, max)
-# sample = randomArrayGeneratorWithoutDuplicates(nos)
-sample = [4, 8, 0, 3, 2, 1, 6, 7, 5, 9]
+sample = randomArrayGeneratorWithoutDuplicates(nos)
+# sample = [4, 8, 0, 3, 2, 1, 6, 7, 5, 9]
 # sample = [3,1,2,5,0,4]
 print("sample is : ", sample)
 # heapsort_geeks_for_geeks(sample)

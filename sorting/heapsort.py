@@ -1,5 +1,5 @@
 
-sample = [9, 7, 6, 2, 1, 3, 8]
+# sample = [9, 7, 6, 2, 1, 3, 8]
 # swap
 # temp = s[i] 
 # s[j] = s[i]
@@ -34,29 +34,32 @@ def heapsort(sample):
                 j = parent_node(j)
 
     while sample_length > 1:
-        # swap root with last item.
-        sample[0], sample[sample_length-1] = sample[sample_length - 1], sample[0]
 
         # we have a max heap
-        print('max heap: ', sample)
-        
+        # print('max heap: ', sample)
+
+        # swap root with last item.
+        sample[0], sample[sample_length-1] = sample[sample_length - 1], sample[0]        
+
         # decrease the scope of length by 1
         sample_length -= 1
-        print(sample)
         # swap from root to make to a prefect heap.
         j = 0
         while(True):
-            if (sample_length > left_node(j) and sample[j] < sample[left_node(j)]):
+            if sample_length > left_node(j) and sample[j] < sample[left_node(j)]:
+                if (sample_length > right_node(j) and sample[j] < sample[right_node(j)]):
+                    if sample[left_node(j)] < sample[right_node(j)]:
+                        sample[j], sample[right_node(j)] = sample[right_node(j)], sample[j]
+                        # print("swap right", sample[j], sample[right_node(j)])
+                        j = right_node(j)
+                        continue
                 sample[j], sample[left_node(j)] = sample[left_node(j)], sample[j]
-                print("swap left", sample[j], sample[left_node(j)])
+                # print("swap left", sample[j], sample[left_node(j)])
                 j = left_node(j)
-            elif (sample_length > right_node(j) and sample[j] < sample[right_node(j)]):
-                sample[j], sample[right_node(j)] = sample[right_node(j)], sample[j]
-                print("swap right", sample[j], sample[right_node(j)])
-                j = right_node(j)
+                continue
             else:
-                print('cond1: ',sample_length, left_node(j), sample_length>left_node(j))
-                print('cond2: ',sample_length, right_node(j), sample_length>right_node(j))
+                # print('cond1: ',sample_length, left_node(j), sample_length>left_node(j))
+                # print('cond2: ',sample_length, right_node(j), sample_length>right_node(j))
                 break
 
 
