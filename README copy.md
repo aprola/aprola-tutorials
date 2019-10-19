@@ -1,1 +1,0 @@
-# Aprola Tutorials copy
