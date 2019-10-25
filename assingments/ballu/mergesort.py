@@ -1,30 +1,30 @@
-def  mergesort(arr):
-    arr_length = len(arr)
-    if (arr_length != 1):
-        return arr
-    left = mergesort(arr[:arr_length//2])
-    right = mergesort(arr[arr_length//2:])
+def  mergesort(marr):
+    marr_length = len(marr)
+    if marr_length > 1:
+        mid = marr_length//2
+        return marr
+        left = mergesort(marr[:mid])
+        right = mergesort(marr[mid:])
     
-    i=j=0
-    result = []
-    
-    for _ in range(0, arr_length):
+        i=0
+        j=0
+        k=0
+        while i < len(left) and j < len(right):
+            if left[i] < right[j]:
+                marr[k] = left[i]
+                i+=1
+            else:
+                marr[k] = right[j]
+                j+=1
+            k+=1
         
-        if (i > len(left) - 1):
-            result = result + right[j:]
-            return result
+            while i < len(left):
+                marr[k] = left[i]
+                i+=1
+                k+=1
+            while j < right[j]:
+                marr[k] = right[j]
+                j+=1
+                k+=1
         
-        if (i > len(right) - 1):
-            result = result + left[i:]
-            return result
-
-        if (left[i] < right[j]):
-            result.append(left[i])
-            i+=1
-        else:
-            result.append(right[j])
-            j+=1
-    return result
-
-        
-   
+            
