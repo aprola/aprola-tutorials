@@ -17,10 +17,12 @@ def bucketsort(sample):
     for i in range(array_length):
         index = sample[i]//(10**(digits_in_max_value-1))
         buckets[index].append(sample[i]
+
     for i in range(10):
+
         if len(buckets[i]) > 1:
     
-            heapsort(buckets[i])
+            insertion(buckets[i])
             
     
     sorted_bucket = []
@@ -29,7 +31,3 @@ def bucketsort(sample):
         sorted_bucket += buckets[i]
     
     return sorted_bucket
-
-
-
-

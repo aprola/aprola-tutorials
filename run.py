@@ -6,7 +6,7 @@ from sorting.radix import radix
 from sorting.counting import countingsort
 from sorting.bucketsort import bucketsort
 from sorting.heapsort import heapsort, heapsort_geeks_for_geeks
-from assingments.nishu.mergesort import mergeSort
+from assingments.nishu.radix import radix
 from assingments.ballu.countingsort import counting_sort
 
 
