@@ -35,10 +35,11 @@ git commit -m "write brief description about the commit"
 ```
 
 
-### to check commit logs of current branch: git logs
+### to reset the changes. ie to hard remove the changes in branch: git reset
 
 ```
-git logs
+# any uncommited changes even if added will removed. Use with caution :)
+git reset --hard
 ```
 
 
