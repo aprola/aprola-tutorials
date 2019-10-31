@@ -7,6 +7,7 @@ for(var len in sam_arr){
   }
 }
 var max_itr = 0;
+// max_itr = max.toString().length;
 while((max/10) > 0){
   max_itr++;
   max = parseInt(max/10);
